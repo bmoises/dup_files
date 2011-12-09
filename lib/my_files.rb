@@ -32,8 +32,8 @@ class MyFiles
         break
       end
       # process files
-      while @files.size >= 1 do
-        @log.info @files.shift
+      while file = @files.shift do
+        @log.info file
       end
       # process 1 directory at a time
       directory_contents(@directories.shift)

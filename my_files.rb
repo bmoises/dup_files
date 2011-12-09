@@ -1,3 +1,6 @@
+require "rubygems"
+require "bundler/setup"
+
 $: << File.expand_path(File.dirname(__FILE__))
 require 'lib/my_files.rb'
 
