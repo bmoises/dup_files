@@ -34,6 +34,7 @@ class MyFiles
       # process files
       while file = @files.shift do
         @log.info file
+        yield file
       end
       # process 1 directory at a time
       directory_contents(@directories.shift)

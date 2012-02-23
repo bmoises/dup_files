@@ -1,4 +1,4 @@
 # My Gemfile
+source "http://rubygems.org"
 
-gem "mongo", "1.5.1"
-gem "bson_ext", "1.5.1"
+gem "sqlite3"
