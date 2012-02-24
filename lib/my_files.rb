@@ -12,8 +12,9 @@ class MyFiles
   attr_accessor :initial_path, :excludes_file, :excludes
   attr_accessor :log
   attr_accessor :files, :directories
-  def initialize(args)
-    @initial_path, @excludes_file = args
+  def initialize(initial_path,excludes=EXCLUDES_FILE)
+    #TODO: support multiple directories
+    @initial_path, @excludes_file = initial_path, excludes
     
     @log = Log.new
     
