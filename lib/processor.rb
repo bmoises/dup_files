@@ -10,8 +10,6 @@ class Processor
     if !file_in_db?(path)
       put_in_db(path,digest)
     end
-    
-    #puts " --- #{file} #{md5(file)}"
   end
   
   def md5(path)
@@ -25,11 +23,12 @@ class Processor
   end
   
   def put_in_db(path,digest)
-    ctime = File.ctime(path)
-    mtime = File.mtime(path)
-    vals = "'"+[path , digest, ctime, mtime].join("','")+"'"
+    vals = [path , 
+            digest, 
+            File.ctime(path), 
+            File.mtime(path)].join("','")
     
-    @db.execute("INSERT INTO files (#{FileTable.columns.join(",")}) VALUES(#{vals})")
+    @db.execute("INSERT INTO files (#{FileTable.columns.join(",")}) VALUES('#{vals}')")
   end
   
   def file_in_db?(path)

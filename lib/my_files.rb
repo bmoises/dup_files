@@ -43,7 +43,6 @@ class MyFiles
   
   private
   
-    
     def directory_contents(path)
       if !path
         @log.warn "path is emtpy"
@@ -51,12 +50,13 @@ class MyFiles
       end
       @log.verbose "Path: #{path}"
       Dir[(path+"/*")].each do |loc| 
-        puts loc
+        #puts loc
         if skip?(loc)
           @log.warn "Skipping: #{path}"
           next
         end
         if FileTest.directory?(loc)
+          puts "Processing: #{loc}"
           @directories << loc
         else
           @files << loc
@@ -67,6 +67,7 @@ class MyFiles
     def skip?(path)
       @excludes.exclude?(File.basename(path))
     end
+    
     def initial_path
       @initial_path
     end
