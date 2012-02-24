@@ -57,7 +57,11 @@ class MyFiles
           next
         end
         if FileTest.directory?(loc)
-          puts "Processing: #{loc}"
+          if File.symlink?(loc)
+            @log.warn "Skipping: #{path}"
+            next
+          end
+          @log.info "Processing: #{loc}".color(:cyan)
           @directories << loc
         else
           @files << loc

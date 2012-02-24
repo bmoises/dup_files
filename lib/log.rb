@@ -11,7 +11,7 @@ class Log
     write "VERBOSE: #{stuff}"
   end
   
-  def write(stuff)
+  def write(stuff, color=nil)
     puts stuff if ENV['VERBOSE']
   end
 end

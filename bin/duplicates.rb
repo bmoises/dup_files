@@ -13,9 +13,13 @@ IN (SELECT md5
     ORDER BY md5;
 ")
 
-pp files.inject({}){ |newhash, val|
-  pp val
-  newhash[val[2]] = [] if !newhash[val[2]] 
-  newhash[val[2]] << val[1]
-  # newhash[k] = v
+duplicates = {}
+files.each{ |dup|
+  duplicates[dup[2]] ||= []
+  duplicates[dup[2]] << dup[1]
 }
+
+duplicates.each do |key,files|
+  puts "#{key.slice(0..6)}".color(:green)
+  puts "\s\s#{files.join("\n\s\s")}".color(:blue)
+end

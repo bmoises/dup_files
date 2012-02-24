@@ -7,4 +7,6 @@ require 'lib/my_files'
 require 'lib/db'
 require 'lib/processor'
 
+require 'rainbow'
+
 
