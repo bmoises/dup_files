@@ -2,9 +2,10 @@
 Allows you to find duplicate files given a path
 
 == TODO
+  * Refactor code
   * Update database to be smarter
-  * figure out a way to optimize indexing (its a little slow)
-  * update code to keep track of subsequent indexing
+  * Figure out a way to optimize indexing (its a little slow)
+  * Update code to keep track of subsequent indexing
   
 == Install
 bundle install --path bundler
