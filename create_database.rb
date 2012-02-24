@@ -12,6 +12,7 @@ require 'constants'
 CREATE TABLE files(id INTEGER PRIMARY KEY ASC, 
                    path varchar(2048),
                    md5 varchar(32),
-                   created_at DATETIME
+                   created_at DATETIME,
+                   modified_at DATETIME
                    );
 ")

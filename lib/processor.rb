@@ -18,8 +18,18 @@ class Processor
     Digest::MD5.file(path)
   end
   
+  module FileTable
+    def self.columns
+      @@columns ||= %w(path md5 created_at modified_at)
+    end
+  end
+  
   def put_in_db(path,digest)
-    @db.execute("INSERT INTO files (path, md5) VALUES('#{path}','#{digest}')")
+    ctime = File.ctime(path)
+    mtime = File.mtime(path)
+    vals = "'"+[path , digest, ctime, mtime].join("','")+"'"
+    
+    @db.execute("INSERT INTO files (#{FileTable.columns.join(",")}) VALUES(#{vals})")
   end
   
   def file_in_db?(path)
