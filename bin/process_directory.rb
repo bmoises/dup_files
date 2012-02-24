@@ -1,5 +1,5 @@
 $: << File.realdirpath(File.join(File.dirname(__FILE__),".."))
-require 'my_files'
+require 'dup_files'
 
 proc     = Processor.new
 proc.db  = Db.new(DB_FILE)
