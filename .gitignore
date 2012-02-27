@@ -1,2 +1,4 @@
 .bundle
 bundler
+db
+tmp_files
